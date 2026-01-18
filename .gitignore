@@ -1,0 +1,29 @@
+# Java / Gradle
+.gradle/
+build/
+bin/
+out/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS / tooling noise
+.DS_Store
+Thumbs.db
+*.log
+hs_err_pid*.log
+replay_pid*.log
+*.swp
+*~
+
+# Local artifacts in this repo
+build_output.txt
+crash-*.txt

@@ -1,4 +1,4 @@
-# Auction Sniper (Fabric client mod)
+# Auction Sniper (Fabric client mod) (tested on Donut SMP)
 
 Client-side Fabric mod that watches an in-game “Auction House” chest GUI for underpriced listings, plays an alert sound, and can optionally auto-buy / auto-relist. Notifications can also be pushed to `ntfy.sh`.
 
@@ -7,8 +7,13 @@ Client-side Fabric mod that watches an in-game “Auction House” chest GUI for
 - **Scans auction listings** for an item name substring (`targetItemName`) and parses tooltip lines like `Price: $1,600,000` (also supports `K/M/B` suffixes).
 - **Notifies on matches** (sound + optional `ntfy.sh` push) and dedupes repeats for ~60s per listing.
 - **Auto-refreshes** the auction GUI at a randomized interval by clicking a “refresh/next/prev” style button item.
+  - Default refresh interval is **1000-1500ms** (about **40-60 refreshes/min**). Configure via `refreshIntervalMin` / `refreshIntervalMax`.
 - **Optional auto-buy**: clicks the listing, then auto-confirms on a confirm screen.
 - **Optional auto-relist**: after purchase, equips the bought item and runs a configurable sell command, then confirms.
+
+## Warning
+
+This is an experimental automation mod. Using auto-refresh/auto-buy on servers may violate rules and can get you flagged by anti-cheat and/or banned. Avoid extended/unattended use; use at your own risk.
 
 ## Requirements
 
@@ -123,7 +128,7 @@ Useful entries include matches, auto-buy clicks, confirm clicks, relist state, a
 - **Server-specific UI**: detection relies on GUI titles containing “auction” / “confirm” (with some normalization for encoding artifacts). Different servers/languages may need code changes.
 - **Refresh button heuristics**: refresh clicks are based on item name containing “refresh/next page/previous page” or certain items (clock/arrow/anvil). This may misclick on some UIs.
 - **Tooltip format assumptions**: price parsing expects a line like `Price: $<number>`; if your server formats price differently, update the regex in `HandledScreenMixin`.
-- **Automation risk**: using auto-buy/auto-refresh on servers may violate rules and can lead to bans. Use at your own risk.
+- **Experimental / anti-cheat risk**: this is an experimental mod. Using auto-refresh/auto-buy for extended periods may get you flagged by anti-cheat and/or banned depending on the server rules. Avoid long unattended sessions; use at your own risk.
 
 ## Project status / roadmap
 

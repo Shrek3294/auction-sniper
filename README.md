@@ -47,6 +47,8 @@ Config file is created on first launch:
 - Normal install: `.minecraft/config/auctionsniper.json`
 - Dev run: `run/config/auctionsniper.json`
 
+If you have **Mod Menu** installed, you can edit these settings in-game via the Mod Menu config button (or run `/auctionsniper config`).
+
 ### Options
 
 | Key | Type | Default | Meaning |
@@ -87,6 +89,7 @@ All commands are client commands under `/auctionsniper` (see `src/main/java/com/
 
 - `/auctionsniper help`
 - `/auctionsniper status`
+- `/auctionsniper config` (open config screen)
 - `/auctionsniper toggle` (auto-refresh on/off)
 - `/auctionsniper target <item name...>`
 - `/auctionsniper price <amount>`

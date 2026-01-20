@@ -17,6 +17,9 @@
     "entrypoints": {
         "client": [
             "com.example.auctionsniper.AuctionSniperMod"
+        ],
+        "modmenu": [
+            "com.example.auctionsniper.AuctionSniperModMenuIntegration"
         ]
     },
     "mixins": [

@@ -6,6 +6,8 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.text.Text;
 
@@ -166,6 +168,13 @@ public class SniperCommand {
                                             .sendFeedback(Text.literal("\u00A7aNtfy topic set to: \u00A7f" + topic));
                                     return 1;
                                 })))
+                .then(literal("config")
+                        .executes(context -> {
+                            MinecraftClient client = MinecraftClient.getInstance();
+                            Screen parent = client.currentScreen;
+                            client.setScreen(new AuctionSniperConfigScreen(parent));
+                            return 1;
+                        }))
                 .then(literal("help")
                         .executes(context -> {
                             context.getSource().sendFeedback(Text.literal("\u00A76=== Auction Sniper Commands ==="));
@@ -191,6 +200,8 @@ public class SniperCommand {
                                     .sendFeedback(Text.literal("\u00A7e/auctionsniper sellcmd <format> \u00A77- Set AH sell command"));
                             context.getSource()
                                     .sendFeedback(Text.literal("\u00A7e/auctionsniper ntfy <topic> \u00A77- Set ntfy topic"));
+                            context.getSource()
+                                    .sendFeedback(Text.literal("\u00A7e/auctionsniper config \u00A77- Open config screen"));
                             return 1;
                         })));
     }

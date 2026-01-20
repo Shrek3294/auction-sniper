@@ -84,4 +84,52 @@ public class SniperConfig {
             e.printStackTrace();
         }
     }
+
+    public static void resetToDefaults() {
+        Defaults defaults = defaults();
+        targetItemName = defaults.targetItemName();
+        maxPrice = defaults.maxPrice();
+        ntfyTopic = defaults.ntfyTopic();
+        refreshIntervalMin = defaults.refreshIntervalMin();
+        refreshIntervalMax = defaults.refreshIntervalMax();
+        autoRefreshEnabled = defaults.autoRefreshEnabled();
+        autoBuyEnabled = defaults.autoBuyEnabled();
+        ahCommandFormat = defaults.ahCommandFormat();
+        autoRelistEnabled = defaults.autoRelistEnabled();
+        relistPrice = defaults.relistPrice();
+        ahSellCommandFormat = defaults.ahSellCommandFormat();
+        save();
+    }
+
+    public static Defaults defaults() {
+        ConfigData data = new ConfigData();
+        return new Defaults(
+                data.targetItemName,
+                data.maxPrice,
+                data.ntfyTopic,
+                data.refreshIntervalMin,
+                data.refreshIntervalMax,
+                data.autoRefreshEnabled,
+                data.autoBuyEnabled,
+                data.ahCommandFormat,
+                data.autoRelistEnabled,
+                data.relistPrice,
+                data.ahSellCommandFormat
+        );
+    }
+
+    public record Defaults(
+            String targetItemName,
+            double maxPrice,
+            String ntfyTopic,
+            int refreshIntervalMin,
+            int refreshIntervalMax,
+            boolean autoRefreshEnabled,
+            boolean autoBuyEnabled,
+            String ahCommandFormat,
+            boolean autoRelistEnabled,
+            double relistPrice,
+            String ahSellCommandFormat
+    ) {
+    }
 }

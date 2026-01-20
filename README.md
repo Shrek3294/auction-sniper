@@ -1,7 +1,7 @@
 # Auction Sniper (Fabric client mod) (tested on Donut SMP)
 
 Client-side Fabric mod that watches an in-game “Auction House” chest GUI for underpriced listings, plays an alert sound, and can optionally auto-buy / auto-relist. Notifications can also be pushed to `ntfy.sh`.
-
+# See my other mods here  https://discord.gg/b2V2T88V
 ## What it does
 
 - **Scans auction listings** for an item name substring (`targetItemName`) and parses tooltip lines like `Price: $1,600,000` (also supports `K/M/B` suffixes).
